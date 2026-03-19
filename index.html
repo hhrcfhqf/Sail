@@ -21,8 +21,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            /* 背景图链接保持不变 */
             background: linear-gradient(rgba(0,10,30,0.6), rgba(0,10,30,0.6)), 
                         url('https://github.com/hhrcfhqf/Sail/blob/main/%E7%BD%91%E7%AB%99%E8%83%8C%E6%99%AF.png?raw=true') no-repeat center center/cover;
+            background-attachment: fixed; /* 电脑端保留视差效果 */
             color: white;
             text-align: center;
             padding: 0 20px;
@@ -55,9 +57,13 @@
 
         footer { padding: 50px 0; text-align: center; background: #1d1d1f; color: #86868b; }
 
-        /* --- 📱 移动端深度适配 (768px以下) --- */
+        /* --- 📱 移动端深度适配 (修复背景消失问题) --- */
         @media (max-width: 768px) {
-            header { height: 70vh; }
+            header { 
+                height: 60vh; /* 手机端稍微收窄一点，视觉更集中 */
+                background-attachment: scroll !important; /* 强制解决手机端背景消失的关键代码 */
+                background-position: center center;
+            }
             h1 { font-size: 2.2rem; letter-spacing: 0; }
             .hero-slogan { font-size: 1rem; letter-spacing: 3px; margin-top: 15px; }
 
