@@ -7,136 +7,130 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0052d9; /* 腾讯/华为常用的科技蓝 */
-            --accent-color: #ffcc00;
+            --primary-color: #0052d9;
             --text-dark: #1d1d1f;
-            --text-gray: #86868b;
+            --text-gray: #424245;
+            --bg-light: #f5f5f7;
         }
 
-        body { font-family: 'PingFang SC', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--text-dark); margin: 0; padding: 0; background-color: #ffffff; overflow-x: hidden; }
+        body { font-family: 'PingFang SC', sans-serif; margin: 0; color: var(--text-dark); background: #fff; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* --- 1. 大厂风 Hero 头部（大面积留白与高清背景） --- */
+        /* --- 1. 监控主题 Hero 头部 --- */
         header { 
-            position: relative;
-            height: 80vh; /* 占据屏幕 80% 高度，视觉冲击力极强 */
+            height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white; 
+            background: linear-gradient(rgba(0,10,30,0.6), rgba(0,10,30,0.6)), 
+                        url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            color: white;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-            background-attachment: fixed; /* 滚动视差效果 */
         }
+        h1 { font-size: 4rem; margin: 0; font-weight: 700; letter-spacing: -2px; }
+        .hero-slogan { font-size: 1.5rem; color: #ffcc00; margin-top: 20px; letter-spacing: 8px; font-weight: 300; }
 
-        .header-content { z-index: 2; padding: 0 20px; }
-        h1 { font-size: 3.5rem; margin-bottom: 0.5rem; letter-spacing: -1px; font-weight: 700; }
-        .slogan { font-size: 1.5rem; color: var(--accent-color); letter-spacing: 5px; text-transform: uppercase; font-weight: 300; }
-
-        /* --- 2. 核心业务（卡片式布局优化） --- */
-        .section-title { text-align: center; margin: 5rem 0 3rem; font-size: 2.2rem; font-weight: 600; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--primary-color); margin: 15px auto; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        /* --- 2. 模块通用样式 --- */
+        .module-section { padding: 100px 0; display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .module-section:nth-child(even) { flex-direction: row-reverse; background-color: var(--bg-light); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .service-card { 
-            padding: 3rem 2rem; 
-            border-radius: 20px; 
-            background: #f5f5f7; 
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            text-align: center;
-            border: 1px solid transparent;
-        }
-        .service-card:hover { 
-            transform: translateY(-10px); 
-            background: #ffffff; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: var(--primary-color);
-        }
-        .service-card i { font-size: 3rem; color: var(--primary-color); margin-bottom: 1.5rem; }
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-
-        /* --- 3. 极简联系区 --- */
-        .contact-banner { 
-            background: var(--text-dark); 
-            color: white; 
-            padding: 6rem 0; 
-            text-align: center; 
-            margin-top: 8rem;
-        }
-        .contact-banner h2 { font-size: 2.5rem; margin-bottom: 2rem; }
-        .phone-num { font-size: 3rem; color: var(--accent-color); font-weight: bold; margin: 2rem 0; display: block; }
+        .module-text { flex: 1; }
+        .module-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-color); }
+        .module-text p { font-size: 1.2rem; color: var(--text-gray); line-height: 1.8; }
         
-        .btn { 
-            display: inline-block; 
-            background: var(--primary-color); 
-            color: white; 
-            padding: 18px 60px; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-size: 1.2rem; 
-            transition: 0.3s; 
-            box-shadow: 0 10px 20px rgba(0, 82, 217, 0.2);
-        }
-        .btn:hover { transform: scale(1.05); background: #003eb3; }
+        .module-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); transition: 0.5s; }
+        .module-image:hover { transform: scale(1.02); }
+        .module-image img { width: 100%; display: block; height: 400px; object-fit: cover; }
 
-        /* --- 4. 底部响应式 --- */
-        footer { padding: 4rem 0; text-align: center; color: var(--text-gray); font-size: 0.9rem; border-top: 1px solid #eee; }
+        /* --- 3. 专家服务条 --- */
+        .expert-service { background: #000; color: #fff; padding: 80px 0; text-align: center; }
+        .expert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 40px; }
+        .expert-item i { font-size: 2.5rem; color: #ffcc00; margin-bottom: 20px; }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .phone-num { font-size: 1.8rem; }
+        /* --- 4. 悬浮联系按钮 --- */
+        .sticky-contact { position: fixed; right: 30px; bottom: 30px; background: var(--primary-color); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; box-shadow: 0 10px 30px rgba(0,82,217,0.4); z-index: 100; font-weight: bold; }
+
+        footer { padding: 50px 0; text-align: center; background: #1d1d1f; color: #86868b; }
+
+        @media (max-width: 900px) {
+            .module-section { flex-direction: column !important; padding: 60px 20px; }
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="header-content">
+    <div>
         <h1>千帆智能</h1>
-        <div class="slogan">让每一个空间拥有智慧大脑</div>
+        <div class="hero-slogan">数智赋能 · 守护千家万户</div>
     </div>
 </header>
 
 <div class="container">
-    <h2 class="section-title">全栈式弱电解决方案</h2>
-    <div class="service-grid">
-        <div class="service-card">
-            <i class="fa-solid fa-shield-halved"></i>
-            <h3>智能安防监控</h3>
-            <p>基于AI算法的数字监控系统，支持远程报警、人脸识别，保障资产安全。</p>
+    <section class="module-section">
+        <div class="module-text">
+            <h2><i class="fa-solid fa-video"></i> 智能安防监控</h2>
+            <p>我们提供基于AI深度学习的安防方案。不仅是录像，更是智能识别与主动防御。涵盖人脸识别、车辆追踪、周界防范，为您的工厂、商铺、住宅建立全天候“数字哨兵”。</p>
         </div>
-        <div class="service-card">
-            <i class="fa-solid fa-network-wired"></i>
-            <h3>企业级组网</h3>
-            <p>综合布线与WiFi 6全覆盖，万兆骨干网络架构，打造极速办公体验。</p>
+        <div class="module-image">
+            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" alt="监控案例">
         </div>
-        <div class="service-card">
-            <i class="fa-solid fa-house-laptop"></i>
-            <h3>全屋智能集成</h3>
-            <p>灯光、空调、影音一键控制。我们不卖设备，我们设计生活场景。</p>
+    </section>
+
+    <section class="module-section">
+        <div class="module-text">
+            <h2><i class="fa-solid fa-network-wired"></i> 企业级组网服务</h2>
+            <p>拒绝网络卡顿。从万兆光纤入户到全屋Wi-Fi 6无缝漫游，我们专注于打造高并发、低延迟的稳定网络架构。机房整理、综合布线，让您的网络像呼吸一样自然稳定。</p>
         </div>
-        <div class="service-card">
-            <i class="fa-solid fa-headset"></i>
-            <h3>24H 专业团队服务</h3>
-            <p>深耕芜湖本地，提供1小时极速上门响应，终身技术维保支持。</p>
+        <div class="module-image">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800" alt="组网案例">
         </div>
-    </div>
+    </section>
+
+    <section class="module-section">
+        <div class="module-text">
+            <h2><i class="fa-solid fa-house-signal"></i> 全屋智能集成</h2>
+            <p>将建筑赋予生命。通过语音、手机或面板一键控制灯光、窗帘、家电及安防系统。千帆智能为您量身定制全屋联动场景，让科技真正服务于生活温度。</p>
+        </div>
+        <div class="module-image">
+            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800" alt="智能家居">
+        </div>
+    </section>
 </div>
 
-<div class="contact-banner">
+<section class="expert-service">
     <div class="container">
-        <h2>即刻开启您的智能化转型</h2>
-        <p>千帆智能专业团队，为您提供免费的方案勘察与成本估算</p>
-        <span class="phone-num">18698536542</span>
-        <a href="tel:18698536542" class="btn">咨询报价</a>
+        <h2>24小时 专业团队售后保障</h2>
+        <div class="expert-grid">
+            <div class="expert-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <h3>3小时极速响应</h3>
+                <p>芜湖/无为本地化服务团队，突发故障即刻出发。</p>
+            </div>
+            <div class="expert-item">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>终身技术维保</h3>
+                <p>所有工程项目均享有一年免费上门维保及终身技术指导。</p>
+            </div>
+            <div class="expert-item">
+                <i class="fa-solid fa-file-shield"></i>
+                <h3>免费方案设计</h3>
+                <p>专家实地现场勘察，提供最科学、最省钱的专业设计方案。</p>
+            </div>
+        </div>
+        <div style="margin-top: 50px;">
+            <span style="font-size: 2.5rem; color: #ffcc00; font-weight: bold;">1869853642</span>
+            <p>（手机同微信 · 扫码或咨询请直拨）</p>
+        </div>
     </div>
-</div>
+</section>
+
+<a href="tel:1XXXXXXXXXX" class="sticky-contact"><i class="fa-solid fa-phone"></i> 预约看现场</a>
 
 <footer>
-    <p>© 2026 芜湖千帆智能科技有限公司 | 地址：安徽省芜湖市无为市</p>
-    <p>官网：hhrcfhqf.eu.org (审核中) | 托管于全球节点 GitHub Pages</p>
+    <p>© 2026 芜湖千帆智能科技有限公司 | 积跬步以至千里 · 汇千帆而筑智能</p>
+    <p>官网：hhrcfhqf.eu.org (审核中)</p>
 </footer>
 
 </body>
