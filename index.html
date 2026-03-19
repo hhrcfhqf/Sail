@@ -3,58 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>千帆智能 - 无为专业弱电系统服务商</title>
+    <title>千帆智能 - 领先的弱电智能化系统服务商</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0052d9;
-            --text-dark: #1d1d1f;
-            --text-gray: #424245;
-            --bg-light: #f5f5f7;
+            --primary-color: #007aff; /* 科技蓝 */
+            --dark-blue: #001d3d;
+            --text-main: #1d1d1f;
+            --text-sub: #86868b;
         }
 
-        body { font-family: 'PingFang SC', sans-serif; margin: 0; color: var(--text-dark); background: #fff; overflow-x: hidden; scroll-behavior: smooth; }
+        body { font-family: 'PingFang SC', sans-serif; margin: 0; color: var(--text-main); background: #fff; scroll-behavior: smooth; }
 
-        /* --- 1. 监控主题 Hero 头部 --- */
+        /* --- 1. 高级感 Hero 头部 --- */
         header { 
-            height: 90vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(0,10,30,0.6), rgba(0,10,30,0.6)), 
-                        url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            /* 背景换成了充满未来感的数字化监控中心大图 */
+            background: linear-gradient(rgba(0,10,30,0.7), rgba(0,10,30,0.5)), 
+                        url('http://googleusercontent.com/image_collection/image_retrieval/14279883790960740746_1') no-repeat center center/cover;
+            background-attachment: fixed;
             color: white;
             text-align: center;
         }
-        h1 { font-size: 4rem; margin: 0; font-weight: 700; letter-spacing: -2px; }
-        .hero-slogan { font-size: 1.5rem; color: #ffcc00; margin-top: 20px; letter-spacing: 8px; font-weight: 300; }
+        h1 { font-size: 5rem; margin: 0; font-weight: 700; letter-spacing: -2px; }
+        .hero-slogan { font-size: 1.6rem; color: #00d2ff; margin-top: 20px; letter-spacing: 10px; font-weight: 300; }
 
-        /* --- 2. 模块通用样式 --- */
-        .module-section { padding: 100px 0; display: flex; align-items: center; justify-content: space-between; gap: 50px; }
-        .module-section:nth-child(even) { flex-direction: row-reverse; background-color: var(--bg-light); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* --- 2. 业务模块展示 --- */
+        .module-section { padding: 120px 0; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+        .module-section:nth-child(even) { flex-direction: row-reverse; background-color: #fbfbfd; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
         
         .module-text { flex: 1; }
-        .module-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-color); }
-        .module-text p { font-size: 1.2rem; color: var(--text-gray); line-height: 1.8; }
+        .module-text h2 { font-size: 2.8rem; margin-bottom: 25px; color: var(--dark-blue); font-weight: 600; }
+        .module-text p { font-size: 1.25rem; color: var(--text-sub); line-height: 1.8; }
         
-        .module-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); transition: 0.5s; }
-        .module-image:hover { transform: scale(1.02); }
-        .module-image img { width: 100%; display: block; height: 400px; object-fit: cover; }
+        .module-image { flex: 1.2; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+        .module-image img { width: 100%; display: block; height: 450px; object-fit: cover; transition: transform 0.8s; }
+        .module-image:hover img { transform: scale(1.05); }
 
-        /* --- 3. 专家服务条 --- */
-        .expert-service { background: #000; color: #fff; padding: 80px 0; text-align: center; }
-        .expert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 40px; }
-        .expert-item i { font-size: 2.5rem; color: #ffcc00; margin-bottom: 20px; }
+        /* --- 3. 24H 专家服务展示区 --- */
+        .expert-service { background: var(--dark-blue); color: #fff; padding: 100px 0; text-align: center; }
+        .expert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 60px auto; }
+        .expert-item { padding: 40px; border-radius: 20px; background: rgba(255,255,255,0.05); }
+        .expert-item i { font-size: 3rem; color: #00d2ff; margin-bottom: 25px; }
+        .expert-item h3 { font-size: 1.5rem; margin-bottom: 15px; }
 
-        /* --- 4. 悬浮联系按钮 --- */
-        .sticky-contact { position: fixed; right: 30px; bottom: 30px; background: var(--primary-color); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; box-shadow: 0 10px 30px rgba(0,82,217,0.4); z-index: 100; font-weight: bold; }
+        /* --- 4. 浮动交互与按钮 --- */
+        .sticky-contact { position: fixed; right: 40px; bottom: 40px; background: var(--primary-color); color: white; padding: 18px 30px; border-radius: 50px; text-decoration: none; box-shadow: 0 15px 35px rgba(0,122,255,0.4); z-index: 100; font-weight: bold; transition: 0.3s; }
+        .sticky-contact:hover { transform: translateY(-5px); background: #0062cc; }
 
-        footer { padding: 50px 0; text-align: center; background: #1d1d1f; color: #86868b; }
-
-        @media (max-width: 900px) {
-            .module-section { flex-direction: column !important; padding: 60px 20px; }
-            h1 { font-size: 2.5rem; }
+        footer { padding: 60px 0; text-align: center; background: #000; color: #515154; font-size: 0.9rem; }
+        
+        @media (max-width: 1024px) {
+            .module-section { flex-direction: column !important; text-align: center; }
+            h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -63,74 +68,79 @@
 <header>
     <div>
         <h1>千帆智能</h1>
-        <div class="hero-slogan">数智赋能 · 守护千家万户</div>
+        <div class="hero-slogan">数智引擎 · 重构建筑生命力</div>
     </div>
 </header>
 
 <div class="container">
     <section class="module-section">
         <div class="module-text">
-            <h2><i class="fa-solid fa-video"></i> 智能安防监控</h2>
-            <p>我们提供基于AI深度学习的安防方案。不仅是录像，更是智能识别与主动防御。涵盖人脸识别、车辆追踪、周界防范，为您的工厂、商铺、住宅建立全天候“数字哨兵”。</p>
+            <h2><i class="fa-solid fa-eye"></i> 极智安防</h2>
+            <p>不只是录像。我们利用前沿AI视觉算法，为您提供多维感知、主动防御的智慧安防体系。从工厂园区的车辆调度到连锁商业的人脸预警，数据尽在掌握。</p>
         </div>
         <div class="module-image">
-            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" alt="监控案例">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/14279883790960740746_0" alt="监控案例">
         </div>
     </section>
 
     <section class="module-section">
         <div class="module-text">
-            <h2><i class="fa-solid fa-network-wired"></i> 企业级组网服务</h2>
-            <p>拒绝网络卡顿。从万兆光纤入户到全屋Wi-Fi 6无缝漫游，我们专注于打造高并发、低延迟的稳定网络架构。机房整理、综合布线，让您的网络像呼吸一样自然稳定。</p>
+            <h2><i class="fa-solid fa-microchip"></i> 算力布线</h2>
+            <p>基于万兆骨干网架构，提供Wi-Fi 7全场景覆盖与光纤到办方案。我们将机房建设视为艺术品，不仅追求极速稳定，更追求物理布线的极致工艺，助力企业数字转型。</p>
         </div>
         <div class="module-image">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800" alt="组网案例">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/15075701665746312876_2" alt="组网案例">
         </div>
     </section>
 
     <section class="module-section">
         <div class="module-text">
-            <h2><i class="fa-solid fa-house-signal"></i> 全屋智能集成</h2>
-            <p>将建筑赋予生命。通过语音、手机或面板一键控制灯光、窗帘、家电及安防系统。千帆智能为您量身定制全屋联动场景，让科技真正服务于生活温度。</p>
+            <h2><i class="fa-solid fa-house-laptop"></i> 智慧生活</h2>
+            <p>让空间理解人的需求。深度集成全屋环境控制、影音娱乐与隐形安防，通过一站式控制中枢，打造科技感十足的未来居住体验。</p>
         </div>
         <div class="module-image">
-            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800" alt="智能家居">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/2381478667860826569_1" alt="智能家居">
         </div>
     </section>
 </div>
 
 <section class="expert-service">
     <div class="container">
-        <h2>24小时 专业团队售后保障</h2>
+        <h2>7×24 全时域技术支撑</h2>
         <div class="expert-grid">
             <div class="expert-item">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <h3>3小时极速响应</h3>
-                <p>芜湖/无为本地化服务团队，突发故障即刻出发。</p>
+                <i class="fa-solid fa-bolt-lightning"></i>
+                <h3>极速现场响应</h3>
+                <p>芜湖本地化团队，1小时内响应紧急报修。</p>
             </div>
             <div class="expert-item">
-                <i class="fa-solid fa-screwdriver-wrench"></i>
-                <h3>终身技术维保</h3>
-                <p>所有工程项目均享有一年免费上门维保及终身技术指导。</p>
+                <i class="fa-solid fa-shield-virus"></i>
+                <h3>专业方案定制</h3>
+                <p>结合实地环境，提供最具前瞻性的设计图纸。</p>
             </div>
             <div class="expert-item">
-                <i class="fa-solid fa-file-shield"></i>
-                <h3>免费方案设计</h3>
-                <p>专家实地现场勘察，提供最科学、最省钱的专业设计方案。</p>
+                <i class="fa-solid fa-user-gear"></i>
+                <h3>终身工程师服务</h3>
+                <p>我们提供的不仅仅是产品，更是长久的运维伙伴。</p>
             </div>
         </div>
+        
+        <div class="module-image" style="max-width: 800px; margin: 40px auto;">
+             <img src="http://googleusercontent.com/image_collection/image_retrieval/13542719255060644228_3" style="height: 300px;" alt="工程师操作">
+        </div>
+
         <div style="margin-top: 50px;">
-            <span style="font-size: 2.5rem; color: #ffcc00; font-weight: bold;">1869853642</span>
-            <p>（手机同微信 · 扫码或咨询请直拨）</p>
+            <span style="font-size: 3rem; color: #00d2ff; font-weight: bold;">1XXXXXXXXXX</span>
+            <p>预约专家现场勘察方案</p>
         </div>
     </div>
 </section>
 
-<a href="tel:1XXXXXXXXXX" class="sticky-contact"><i class="fa-solid fa-phone"></i> 预约看现场</a>
+<a href="tel:1XXXXXXXXXX" class="sticky-contact">即刻预约报价</a>
 
 <footer>
     <p>© 2026 芜湖千帆智能科技有限公司 | 积跬步以至千里 · 汇千帆而筑智能</p>
-    <p>官网：hhrcfhqf.eu.org (审核中)</p>
+    <p>安徽省芜湖市无为市核心服务商</p>
 </footer>
 
 </body>
